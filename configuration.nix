@@ -147,7 +147,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+   (vim_configurable.customize {
+      name = "vim-full-with-plugins";
+      vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [ nerdtree vim-airline ];
+      };
+      vimrcConfig.customRC = ''
+        set clipboard=unnamedplus
+        set number
+        syntax on
+        filetype plugin indent on
+        let g:airline#extensions#tabline#enabled = 1
+      '';
+    })
     wget
     discord-ptb
     vscode
