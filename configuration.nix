@@ -164,6 +164,7 @@
     })
     vim
     neovim
+    cloudflared
     ngrok
     wget
     discord-ptb
