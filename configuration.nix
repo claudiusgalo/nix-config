@@ -149,16 +149,18 @@
   environment.systemPackages = with pkgs; [
    (vim_configurable.customize {
       name = "vim-full-with-plugins";
-      vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [ nerdtree vim-airline ];
-      };
-      vimrcConfig.customRC = ''
+      vimrcConfig = {
+        packages.myVimPackage = with pkgs.vimPlugins; {
+          start = [ nerdtree vim-airline ];
+       };
+       customRC = ''
         set clipboard=unnamedplus
         set number
         syntax on
         filetype plugin indent on
         let g:airline#extensions#tabline#enabled = 1
       '';
+     };
     })
     wget
     discord-ptb
