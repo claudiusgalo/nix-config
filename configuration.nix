@@ -164,6 +164,7 @@
     })
     vim
     neovim
+    ngrok
     wget
     discord-ptb
     vscode
