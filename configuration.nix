@@ -162,6 +162,8 @@
       '';
      };
     })
+    vim
+    neovim
     wget
     discord-ptb
     vscode
