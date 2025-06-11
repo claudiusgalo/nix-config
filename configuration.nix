@@ -95,16 +95,27 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  # GNOME Desktop
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
-  # Enable remote desktop
-    services.xrdp = {
+  # Enable RDP access
+  services.xrdp = {
     enable = true;
-    defaultWindowManager = "gnome";  # or "plasma" / "gnome" / "xterm"
-    };
+    defaultWindowManager = "gnome";
+  };
 
+  # Open the RDP port in firewall
+  networking.firewall.allowedTCPPorts = [ 3389 8080 ];
+
+  # Optional: advertise hostname on LAN
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish.enable = true;
+    publish.addresses = true;
+  };
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -193,7 +204,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8080 ];
+  # networking.firewall.allowedTCPPorts = [ 8080 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
