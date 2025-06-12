@@ -11,13 +11,21 @@
     ];
   
   # Enable OpenGL
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
+    driSupport32Bit = true;
   };
-  # Increase buffer size for large projects
-  nix.settings.download-buffer-size = "204857600"; # 100MiB in bytes
+  
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.modesetting.enable = true;
+  
+  # Modesetting is required.
+  # modesetting.enable = true;
+
+
+  # Increase buffer size for large projects
+  nix.settings.download-buffer-size = "204857600"; # 100MiB in bytes
   #hardware.opengl.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
   powerManagement.enable = true; 
@@ -29,9 +37,6 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false; # Avoid unexpected reboots
   hardware.nvidia = {
-
-    # Modesetting is required.
-    modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
