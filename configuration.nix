@@ -15,7 +15,18 @@
     enable = true;
     driSupport32Bit = true;
   };
-  
+ 
+ # hardware.nvidia.prime = {
+ #   sync.enable = true;
+
+    #Integrated 
+    # amdgpuBusId = "PC:0:00:0";
+    # intelBusId = "PC:0:00:0";
+    #Dedicated
+    # nvidiaBusId = "PCI:0:00:0";
+ # };
+
+ 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.modesetting.enable = true;
@@ -184,6 +195,7 @@
       '';
      };
     })
+    pciutils
     vim
     neovim
     cloudflared
