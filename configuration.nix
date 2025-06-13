@@ -23,17 +23,19 @@
   # Modesetting is required.
   # modesetting.enable = true;
 
-  nix.settings = {
-  substituters = [
-    "https://cache.nixos.org"
-    "https://nvidia.cachix.org"         # CUDA stuff
-    "https://ml-nix.cachix.org"         # PyTorch / ML libraries
-  ];
-  trusted-public-keys = [
-      "nvidia.cachix.org-1:U6c+LqF+Zd0dtGZk0FQlSENWREiRccB9vUZBK4UQ4yQ="
-      "ml-nix.cachix.org-1:HcI5GG5kIFpvuIbRkdbwsJVBoG1i3rNxxMbLR4H+0pQ="
-    ];
-  };
+  # ML Package Caches
+    nix.settings = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://ml-nix.cachix.org"
+        "https://cuda-maintainers.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nvidia.cachix.org-1:U6c+LqF+Zd0dtGZk0FQlSENWREiRccB9vUZBK4UQ4yQ="
+        "ml-nix.cachix.org-1:HcI5GG5kIFpvuIbRkdbwsJVBoG1i3rNxxMbLR4H+0pQ="
+        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+      ];
+    };
 
   # Increase buffer size for large projects
   nix.settings.download-buffer-size = "204857600"; # 100MiB in bytes
