@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+#Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -26,7 +26,8 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.modesetting.enable = true;
-  
+  hardware.graphics.enable = true;
+ 
   # Modesetting is required.
   # modesetting.enable = true;
 
@@ -73,7 +74,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
@@ -183,7 +184,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
+  
+  # Unfree package installation.
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+	# Required for nvidia driver
+	"nvidia-x11"
+	"nvidia-settings"
+	
+	# Required for machine learning projects
+	"cuda_cudart"
+	"libcublas"
+	"cuda_cccl"
+	"cuda_nvcc"
+  ];
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
