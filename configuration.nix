@@ -38,10 +38,12 @@
       substituters = [
         "https://cache.nixos.org"
         "https://cuda-maintainers.cachix.org"
+	"https://nixpkgs-python.cachix.org"
       ];
       trusted-public-keys = [
         "nvidia.cachix.org-1:U6c+LqF+Zd0dtGZk0FQlSENWREiRccB9vUZBK4UQ4yQ="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+	"nixpkgs-python.cachix.org-1:g+Ld5vqSJ6LFpmu0i3g9hxZMxZVZz47xPBiwEOGTrgA="
       ];
     };
 
