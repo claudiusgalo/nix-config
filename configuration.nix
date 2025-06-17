@@ -15,13 +15,15 @@
     enable = true;
     driSupport32Bit = true;
   };
-
+  
+  # Tweaks to download buffer and ram swap size for very large downloads such as cuda.
   swapDevices = [
     {
      device = "/swapfile";
      size = 32768; # Size in MB (this is 32 GB)
     }
   ];
+  nix.settings.download-buffer-size = 4294967296; #4GB 
  
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
@@ -43,8 +45,6 @@
       ];
     };
 
-  # Increase buffer size for large projects
-  nix.settings.download-buffer-size = "204857600"; # 100MiB in bytes
   #hardware.opengl.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
   powerManagement.enable = true; 
