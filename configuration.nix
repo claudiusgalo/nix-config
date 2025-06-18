@@ -233,6 +233,22 @@
     python3Packages.scikit-learn
     python3Packages.tqdm
     python3Packages.h5py
+    #Python and ML stack 3.11
+    python311
+    python311Packages.pip
+    python311Packages.numpy
+    python311Packages.scipy
+    python311Packages.matplotlib
+    python311Packages.pandas
+    python311Packages.jupyter
+    python311Packages.pillow
+    python311Packages.torch       
+    python311Packages.torchvision  
+    python311Packages.torchaudio    
+    python311Packages.scikit-learn
+    python311Packages.tqdm
+    python311Packages.h5py
+    cudaPackages.cudatoolkit         
     # CUDA toolkit for GPU support
     cudaPackages.cudatoolkit
     # (Optional: C compilers and other tools)
