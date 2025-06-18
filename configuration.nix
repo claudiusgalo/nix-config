@@ -218,6 +218,26 @@
       '';
      };
     })
+    #Python and ML stack 
+    python3
+    python3Packages.pip
+    python3Packages.numpy
+    python3Packages.scipy
+    python3Packages.matplotlib
+    python3Packages.pandas
+    python3Packages.jupyter
+    python3Packages.pillow
+    python3Packages.torch
+    python3Packages.torchvision
+    python3Packages.torchaudio
+    python3Packages.scikit-learn
+    python3Packages.tqdm
+    python3Packages.h5py
+    # CUDA toolkit for GPU support
+    cudaPackages.cudatoolkit
+    # (Optional: C compilers and other tools)
+    gcc
+    # Other system packages
     pciutils
     vim
     neovim
