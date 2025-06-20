@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
     ];
   
+  nix.settings.trusted-users = [ "root" "claudius" ];
+  
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
@@ -39,11 +41,13 @@
         "https://cache.nixos.org"
         "https://cuda-maintainers.cachix.org"
 	"https://nixpkgs-python.cachix.org"
+	"https://ai.cachix.org"
       ];
       trusted-public-keys = [
         "nvidia.cachix.org-1:U6c+LqF+Zd0dtGZk0FQlSENWREiRccB9vUZBK4UQ4yQ="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
 	"nixpkgs-python.cachix.org-1:g+Ld5vqSJ6LFpmu0i3g9hxZMxZVZz47xPBiwEOGTrgA="
+        "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
       ];
     };
 
