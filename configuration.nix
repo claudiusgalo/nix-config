@@ -12,6 +12,27 @@
   
   nix.settings.trusted-users = [ "root" "claudius" ];
   
+  #------- Start of Ollama Configuration ---------
+  # One systemd unit, always running
+  services.ollama = {
+    enable       = true;
+    acceleration = "cuda";                                # use your RTX-3060 :contentReference[oaicite:1]{index=1}
+    loadModels   = [ "llama3:8b" "mistral:7b-instruct" ]; # pre-pull once :contentReference[oaicite:2]{index=2}
+
+    # Example resource limits (tweak to taste)
+    environmentVariables = {
+      OLLAMA_KEEP_ALIVE        = "-1";   # never evict from VRAM
+      OLLAMA_MAX_LOADED_MODELS = "1";    # only one model resident
+    };
+  };
+
+  # Optional Web UI on :8080
+  services.open-webui.enable = true;
+  #------ End of Ollama Configuration ---------
+
+
+
+ 
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
@@ -258,6 +279,7 @@
     # (Optional: C compilers and other tools)
     gcc
     # Other system packages
+    ollama
     pciutils
     vim
     neovim
