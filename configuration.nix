@@ -279,6 +279,9 @@
     gcc
     # Other system packages
     ollama
+    tauon           # All-in-one music + podcasts
+    newsboat        # For text-based news and podcast feeds
+    mpv             # Audio player for feeds
     pciutils
     kitty
     musicpod
