@@ -217,7 +217,6 @@
 	# Required for nvidia driver
 	"nvidia-x11"
 	"nvidia-settings"
-	
 	# Required for machine learning projects
 	"cuda_cudart"
 	"libcublas"
@@ -281,6 +280,8 @@
     # Other system packages
     ollama
     pciutils
+    kitty
+    musicpod
     vim
     neovim
     cloudflared
