@@ -278,6 +278,7 @@
     # (Optional: C compilers and other tools)
     gcc
     # Other system packages
+    zulu 	    # For ToS client.
     ollama
     tauon           # All-in-one music + podcasts
     newsboat        # For text-based news and podcast feeds
