@@ -152,12 +152,13 @@
   # GNOME Desktop
    services.xserver.desktopManager.gnome.enable = true;
    services.xserver.displayManager.gdm.enable = true;
+   services.gnome.gnome-remote-desktop.enable = true;
 
   # Enable RDP access
-  services.xrdp = {
-    enable = true;
-    defaultWindowManager = "gnome-session";
-  };
+  # services.xrdp = {
+  #  enable = true;
+  #  defaultWindowManager = "gnome-session";
+  #};
 
   # Open the RDP port in firewall
   networking.firewall.allowedTCPPorts = [ 3389 8080 ];
