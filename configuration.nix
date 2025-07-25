@@ -144,16 +144,19 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+   services.xserver.enable = true;
+  # Remote Desktop
+  # services.xrdp.enable = true;
+  # services.xrdp.defaultWindowsManager = "gnome-session";
 
   # GNOME Desktop
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+   services.xserver.desktopManager.gnome.enable = true;
+   services.xserver.displayManager.gdm.enable = true;
 
   # Enable RDP access
   services.xrdp = {
     enable = true;
-    defaultWindowManager = "gnome";
+    defaultWindowManager = "gnome-session";
   };
 
   # Open the RDP port in firewall
@@ -308,7 +311,9 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+  # services.openssh.settings.PasswordAuthentication = true;
+  # services.openssh.settings.PermitRootLogin = "no";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 8080 ];
