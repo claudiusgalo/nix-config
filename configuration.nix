@@ -184,8 +184,22 @@
     # Misc
     ollama
 
-    displaylink
+    monero-gui 
+    xmrig
   ];
+  
+  # Set up service for mining
+  #systemd.services.xmrig = {
+  #   description = "XMRig miner";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network.target" ];
+
+  #  serviceConfig = {
+  #     ExecStart = "${pkgs.xmrig}/bin/xmrig --config /etc/xmrig/config.json";
+  #     Restart = "always";
+  #     RestartSec = "10s";
+  #  };
+  #};
 
   # System version pin
   system.stateVersion = "24.11";
