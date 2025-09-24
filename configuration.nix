@@ -32,7 +32,6 @@
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.evdi ];
   boot.kernelModules = [ "evdi" ];
-  #services.displaylink.enable = true;
 
   # Time and locale
   time.timeZone = "America/Chicago";
@@ -50,7 +49,7 @@
 
   # Display stack
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" "nomodeset" ];
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -64,7 +63,7 @@
     modesetting.enable = true;
     powerManagement.enable = true;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
@@ -180,6 +179,8 @@
 
     # R stack
     R rstudio
+    
+    neo4j-desktop
 
     # Misc
     ollama
